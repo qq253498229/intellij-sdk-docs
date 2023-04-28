@@ -1,8 +1,8 @@
-# Required Experience
+# 所需经验
 
 <!-- Copyright 2000-2022 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
 
-<link-summary>Required technology knowledge.</link-summary>
+<link-summary>所需技术知识。</link-summary>
 
 The IntelliJ Platform is a JVM application, implemented mostly in Java and [Kotlin](https://kotlinlang.org).
 At this time, it's not possible to develop plugins for the IntelliJ Platform in non-JVM languages.

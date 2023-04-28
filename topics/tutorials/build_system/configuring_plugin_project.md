@@ -1,8 +1,8 @@
-# Configuring Gradle IntelliJ Plugin
+# 配置 Gradle IntelliJ 插件
 
 <!-- Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
 
-<link-summary>Configuring the essential Gradle IntelliJ Plugin attributes and tasks.</link-summary>
+<link-summary>配置必要的 Gradle IntelliJ 插件属性和任务。</link-summary>
 
 This section presents a guided tour of Gradle plugin attributes to achieve the commonly desired functionality.
 For more advanced options, see the full [Gradle IntelliJ Plugin](tools_gradle_intellij_plugin.md) reference.

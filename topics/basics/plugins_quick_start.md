@@ -1,11 +1,11 @@
 <!-- Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
 
-# Quick Start Guide
+# 快速入门指南
 
-<link-summary>Introduction to IntelliJ Platform plugin development.</link-summary>
+<link-summary>IntelliJ 平台插件开发介绍。</link-summary>
 
-This section covers the basics of working with the IntelliJ Platform.
-It will familiarize you with the working environment, project structure, and frequently used API components.
+本节介绍了如何使用 IntelliJ 平台的基础知识。
+它将让您熟悉工作环境、项目结构和常用的 API 组件。
 
 * [](plugin_alternatives.md)
 * [](plugin_required_experience.md)
@@ -17,6 +17,6 @@ It will familiarize you with the working environment, project structure, and fre
 * [](ide_development_instance.md)
 * [](faq.md)
 
-> If you are interested in the UI theme development, please see [Part X - Themes](themes_getting_started.md).
+> 如果您对 UI 主题开发感兴趣，请参阅[第 X 部分 - 主题](themes_getting_started.md)。
 >
 {style="note"}

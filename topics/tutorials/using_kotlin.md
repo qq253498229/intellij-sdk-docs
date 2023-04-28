@@ -1,8 +1,8 @@
-# Configuring Kotlin Support
+# 配置 Kotlin 支持
 
 <!-- Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
 
-<link-summary>Advantages and configuration required for developing a plugin in Kotlin.</link-summary>
+<link-summary>使用 Kotlin 开发插件的优势和所需配置。</link-summary>
 
 <tldr>
 

@@ -1,29 +1,29 @@
-# Alternatives to Implementing a Plugin
+# 实现插件的替代方案
 
 <!-- Copyright 2000-2023 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
 
-<link-summary>Alternative strategies and tools to avoid building a "full" plugin.</link-summary>
+<link-summary>避免构建“完整”插件的替代策略和工具。</link-summary>
 
-In some cases, implementing an actual IntelliJ Platform plugin can be overkill, and using one of the alternative approaches listed below may provide you with the required value in a much shorter time.
-If you need a functionality that is specific to your project domain, conventions, or practices, you can avoid all the steps that are required to implement and publish a plugin and provide these features as a part of your project or IDE configuration files.
+在某些情况下，实现一个真正的IntelliJ平台插件可能是过度的，使用下面列出的替代方法可以在更短的时间内提供所需的价值。
+如果您需要特定于项目域、惯例或实践的功能，您可以避免实现和发布插件所需的所有步骤，并将这些特性作为您的项目或IDE配置文件的一部分提供。
 
-Before you start the IntelliJ Platform plugin development, define your requirements and verify if they can be covered with any of the alternatives described below.
-Consider implementing an actual plugin only when the described solutions are insufficient in your case and there is a significant number of developers who can benefit from it.
+在开始IntelliJ平台插件开发之前，请定义您的要求并验证它们是否可以通过下面描述的任何替代方法来满足。
+只有在所描述的解决方案在您的情况下不足以提供足够的价值，并且有大量开发人员可以从中受益时，才考虑实现实际的插件。
 
-## Structural Search and Replace Inspections
+## 结构搜索和替换检查
 
-The [Structural Search and Replace (SSR)](https://www.jetbrains.com/help/idea/structural-search-and-replace.html) functionality allows defining search patterns which are based not only on textual information but also on the structure of the searched code fragments, no matter how it is formatted or commented.
-The SSR templates can be used for [creating custom inspections](https://www.jetbrains.com/help/idea/creating-custom-inspections.html), which can be an alternative for programmatic [code inspections](code_inspections.md).
-Depending on requirements, an inspection can report an issue for a code fragment matching a given template, but also provide a quick fix replacing the reported fragment with the configured replacement template.
-All inspection metadata like name, problem tooltip, and description are configurable.
-A single inspection can use multiple search and replacement templates.
+[结构化搜索和替换（SSR）功能](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)允许定义基于搜索代码片段结构的搜索模式，而不仅仅是基于文本信息，无论搜索的代码片段如何格式化或注释。
+SSR模板可用于 [创建自定义检查](https://www.jetbrains.com/help/idea/creating-custom-inspections.html)，这可以是编程式 [代码检查](code_inspections.md)的替代方法。
+根据要求，检查可以为与给定模板匹配的代码片段报告问题，但也可以提供快速修复，将报告的片段替换为配置的替换模板。
+所有检查元数据，如名称、问题提示和描述，都是可配置的。
+单个检查可以使用多个搜索和替换模板。
 
-Once SSR inspections are created and configured, they can be shared with other team members via [inspection profiles](https://www.jetbrains.com/help/idea/customizing-profiles.html).
+创建和配置SSR检查后，可以通过 [检查配置文件](https://www.jetbrains.com/help/idea/customizing-profiles.html)与其他团队成员共享。
 
-SSR inspections can be created only for languages providing SSR support.
-To verify if a given language supports SSR, invoke the <ui-path>Edit | Find | Search Structurally...</ui-path> action in an IDE supporting the language, and check if it is present in the <control>Language</control> select list.
+只能为提供SSR支持的语言创建SSR检查。
+要验证某种语言是否支持SSR，请在支持该语言的IDE中调用 <ui-path>编辑|查找|结构化搜索...</ui-path> 操作，并检查它是否出现在 <control>语言(Language)</control> 选择列表中。
 
-> See the [I(J)nspector](https://ijnspector.wordpress.com/) blog for practical SSR templates examples.
+> 请参阅 [I(J)nspector](https://ijnspector.wordpress.com/) 博客，了解实际的SSR模板示例。
 >
 {style="note"}
 

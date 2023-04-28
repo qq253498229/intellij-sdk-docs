@@ -1,8 +1,8 @@
 <!-- Copyright 2000-2022 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
 
-# IDE Development Instance
+# IDE 开发实例
 
-<link-summary>Overview of IDE instance used for running and debugging a plugin during development.</link-summary>
+<link-summary>在插件开发期间运行和调试插件所使用的 IDE 实例的概述。</link-summary>
 
 A JetBrains feature for developing plugins is running or debugging a plugin project from within an IntelliJ Platform-based IDE such as IntelliJ IDEA.
 Selecting the [`runIde`](creating_plugin_project.md#running-a-plugin-with-the-runide-gradle-task) task for a Gradle-based project (or [Run](running_and_debugging_a_theme.md) menu for a DevKit-based project) will launch a _Development Instance_ of the IDE with the plugin enabled.

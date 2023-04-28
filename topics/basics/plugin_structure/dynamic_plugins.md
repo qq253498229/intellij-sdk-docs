@@ -1,8 +1,8 @@
-# Dynamic Plugins
+# 动态插件
 
 <!-- Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
 
-<link-summary>Making a plugin dynamic allows installing, updating, and uninstalling it without IDE restart, as well as hot reloading plugin changes during the development.</link-summary>
+<link-summary>使插件动态化可以在不需要IDE重新启动的情况下安装、更新和卸载插件，同时也可以在开发期间热重载插件更改。</link-summary>
 
 Starting with the **2020.1** release, installing, updating, and uninstalling plugins without restarting the IDE is available in the IntelliJ Platform.
 

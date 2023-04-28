@@ -1,81 +1,81 @@
-# Contributing to the IntelliJ Platform
+# 参与 IntelliJ 平台贡献
 
 <!-- Copyright 2000-2023 JetBrains s.r.o. and other contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
 
-<tldr>How to participate and contribute in IntelliJ Platform development.</tldr>
+<tldr>如何参与和贡献 IntelliJ 平台开发。</tldr>
 
-Please make sure to read the [Code of Conduct](intellij-sdk-docs-original_CODE_OF_CONDUCT.md).
+请务必阅读[行为准则](intellij-sdk-docs-original_CODE_OF_CONDUCT.md)。
 
-## Participate in the Community
+## 参与社区
 
-### Participate in Newsgroups and Forums
+### 参与论坛和新闻组
 
-There are several community [forums and newsgroups](https://intellij-support.jetbrains.com/hc/en-us/community/topics) you can join to discuss the IntelliJ Platform and IDEs.
-The forums are an excellent source for users and contributors interested in having technical discussions, answering questions, or resolving potential issues for newcomers.
+有几个社区[论坛和新闻组](https://intellij-support.jetbrains.com/hc/en-us/community/topics)可以加入，讨论 IntelliJ 平台和 IDE。
+这些论坛是用户和贡献者感兴趣的技术讨论、回答问题或解决新手潜在问题的绝佳资源。
 
-### Link to IntelliJ Platform Homepage
+### 链接到 IntelliJ 平台主页
 
-The success of any open-source project depends on the number of people who use the product and contribute back to the project.
-By linking to [https://www.jetbrains.com/opensource/idea](https://www.jetbrains.com/opensource/idea), you can increase the chances of a new user or contributor finding out about the project and joining the community.
+任何开源项目的成功都取决于使用产品和为项目做出贡献的人数。
+通过链接至 [https://www.jetbrains.com/opensource/idea](https://www.jetbrains.com/opensource/idea) ，您可以增加新用户或贡献者了解项目并加入社区的机会。
 
-If you're as excited about IntelliJ IDEA Community Edition as we are, you can show it by linking to us.
-Project logos and other assets are [also available](https://www.jetbrains.com/company/brand/logos/).
+如果您像我们一样对 IntelliJ IDEA Community Edition 感到兴奋，可以通过链接来展示。
+项目徽标和其他资产 [也可用](https://www.jetbrains.com/company/brand/logos/)。
 
-### Promote IntelliJ Platform and IntelliJ IDEA Community Edition
+### 推广 IntelliJ 平台和 IntelliJ IDEA Community Edition
 
-Help promote the platform and IDE by using your blog, Twitter, Facebook, or submitting an article to your favorite local magazine.
-If you are a member of a different open-source community, why not mention IntelliJ IDEA on their discussion forums or at conferences?
-If you love IntelliJ IDEA, don't hold back — speak up!
-The more developers use IntelliJ IDEA, the more bugs will be caught, the more plugins will be written, the more visible the project, and the more benefits the community will get!
+使用你的博客、推特、Facebook 或提交文章到你最喜爱的本地杂志来帮助推广这个平台和 IDE。
+如果你是不同开源社区的成员，为什么不在他们的讨论论坛或会议上提及 IntelliJ IDEA 呢？
+如果您喜欢 IntelliJ IDEA，请大声说出来！
+使用 IntelliJ IDEA 的开发者越多，就会发现越多的错误，编写越多的插件，项目变得更加可见，社区获得的好处也会越多！
 
-## Help Others Learn
+## 帮助他人学习
 
-### Write Documents
+### 撰写文档
 
-We're always looking for new articles about IntelliJ IDEA features as well as documentation for the IntelliJ Platform.
-You can write tutorials, how-tos, sample applications, or share your experience with the IntelliJ Platform.
-You can publish your documentation on a website or blog, or submit a [pull request](intellij-sdk-docs-original_CONTRIBUTING.md) to the SDK Docs.
+我们一直在寻找有关 IntelliJ IDEA 功能以及 IntelliJ 平台文档的新文章。
+您可以编写教程、操作指南、示例应用程序或分享您对 IntelliJ 平台的经验。
+您可以将您的文档发布在网站或博客上，或者向 SDK 文档提交 [pull request](intellij-sdk-docs-original_CONTRIBUTING.md)。
 
-### Produce Screencasts
+### 制作演示视频
 
-Screencasts have recently become very popular as a way to show other developers how to use the tool effectively.
-You can record a screencast about a particular feature or use case you discovered and would like to share it with the community.
+最近，演示视频已成为向其他开发者展示如何有效使用工具的一种非常流行的方式。
+您可以记录一个有关某个特定功能或用例的演示视频，并与社区分享。
 
-## Contribute Code
+## 贡献代码
 
-### File a Bug Report
+### 提交 Bug 报告
 
-Bug reports take little time to file and are very helpful to developers.
-This is one of the easiest contributions you can make.
-When you discover a problem with the IDE or the platform, please report it.
-Make sure you provide information about your environment (available from <ui-path>About</ui-path> menu), steps to reproduce the issue, as well as a written description of the problem.
-You can file a bug in our [YouTrack issue tracker](https://youtrack.jetbrains.com/issues/IDEA).
-Before submitting an issue, please search for already submitted ones describing the same problem — and if you find one, feel free to vote for it.
+提交 Bug 报告的时间很短，对开发人员非常有帮助。
+这是您可以做出的最简单的贡献之一。
+当您发现 IDE 或平台存在问题时，请报告它。
+确保提供关于您的环境（可从 <ui-path>About</ui-path> 菜单中获得）、重现问题的步骤以及问题的书面描述等信息。
+您可以在我们的 [YouTrack 问题跟踪器](https://youtrack.jetbrains.com/issues/IDEA)中提交 Bug。
+在提交问题之前，请搜索已经提交的描述相同问题的问题，并如果找到一个，可以投票支持它。
 
-### Help Triage Existing Bug Reports
+### 协助整理现有的 Bug 报告
 
-Over the years, users have submitted thousands of issues to the IntelliJ IDEA issue tracker.
-Many of the unresolved issues are no longer applicable to the latest version of IntelliJ IDEA, are duplicates, or require additional information to be resolved.
-Leaving comments notifying about the status of such issues helps the team keep the issue tracker clean and useful for everyone.
+多年来，用户已向 IntelliJ IDEA 问题跟踪器提交了数千个问题。
+许多未解决的问题不再适用于最新版本的 IntelliJ IDEA，是重复的，或需要更多信息才能解决。
+留下评论通知有关这些问题的状态，有助于团队使问题跟踪器干净且对每个人有用。
 
-### Write a Plugin
+### 编写插件
 
-One of the best ways to contribute a larger piece of code, adding extra functionality to IntelliJ IDEA or any of the other IntelliJ Platform-based IDEs, is by writing a plugin.
-You can submit a plugin to the [JetBrains Marketplace](https://plugins.jetbrains.com/), making it available for all users.
-When writing a plugin, you have control over the code and don't need to sign the contribution agreement.
+为 IntelliJ IDEA 或任何其他基于 IntelliJ 平台的 IDE 添加额外功能的更大代码块，其中最好的方法之一就是编写插件。
+您可以将插件提交到 [JetBrains Marketplace](https://plugins.jetbrains.com/)，使其对所有用户都可用。
+编写插件时，您可以控制代码，并且不需要签署贡献协议。
 
-### Submit a Patch
+### 提交补丁
 
-If you would like to improve the code in the IntelliJ Platform or the core functionality of IntelliJ IDEA, you can submit a pull request to the [IntelliJ IDEA Community Edition repository on GitHub](https://github.com/JetBrains/intellij-community).
-When preparing the change, please make sure to follow the [](intellij_coding_guidelines.md).
-A developer will review your contribution and, if it meets the quality criteria and fits well with the rest of the code, you'll be notified about the acceptance of the patch.
+如果您想改进 IntelliJ 平台的代码或 IntelliJ IDEA 的核心功能，则可以向 [GitHub 上的 IntelliJ IDEA Community Edition 存储库](https://github.com/JetBrains/intellij-community) 提交 pull request。
+在准备更改时，请确保遵循 [](intellij_coding_guidelines.md)。
+开发人员将审核您的贡献，并且如果符合质量标准并与其余代码匹配，则会通知您接受补丁。
 
-Looking for issues to work on? Issues marked with [#patch_welcome](https://youtrack.jetbrains.com/issues/IDEA?q=%23patch_welcome%20%23unresolved) tag are looking for external contributors.
+正在寻找问题来解决吗？带有 [#patch_welcome](https://youtrack.jetbrains.com/issues/IDEA?q=%23patch_welcome%20%23unresolved) 标签的问题正在寻找外部贡献者。
 
-Alternatively, you can attach a patch to the ticket in the [YouTrack bug database](https://youtrack.jetbrains.com/issues/IDEA).
-You can either file a new issue with the patch attached or attach a patch to an issue submitted by another user.
-In this case, you will also need to sign the [JetBrains Contributor License Agreement (CLA)](https://www.jetbrains.com/agreements/cla/) to complete your contribution.
+或者，您可以将补丁附加到 [YouTrack Bug 数据库](https://youtrack.jetbrains.com/issues/IDEA)中的工单。
+您可以使用附加的补丁提交新问题或将补丁附加到由其他用户提交的问题上。
+在这种情况下，您还需要签署 [JetBrains Contributor 许可协议（CLA）](https://www.jetbrains.com/agreements/cla/)以完成您的贡献。
 
-### Become a Committer
+### 成为 Committer
 
-Developers with a long history of submitting high-quality patches can gain direct commit rights.
+长期提交高质量补丁的开发人员可以获得直接提交权限。

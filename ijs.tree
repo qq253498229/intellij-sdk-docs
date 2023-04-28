@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE instance-profile
         SYSTEM "https://helpserver.labs.jb.gg/help/schemas/mvp/product-profile.dtd">
-<instance-profile id="ijs" name="IntelliJ Platform Plugin SDK" start-page="welcome.topic">
-  <toc-element topic="welcome.topic" toc-title="Home"/>
-  <toc-element toc-title="Introduction">
+<instance-profile id="ijs" name="IntelliJ 平台插件 SDK" start-page="welcome.topic">
+  <toc-element topic="welcome.topic" toc-title="主页"/>
+  <toc-element toc-title="介绍">
     <toc-element topic="intellij_platform.md">
       <toc-element topic="platform_contributions.md"/>
       <toc-element topic="intellij_coding_guidelines.md"/>
@@ -21,16 +21,16 @@
     <toc-element topic="getting_help.topic"/>
     <toc-element topic="content_updates.md" accepts-web-file-names="recently_updated.html"/>
   </toc-element>
-  <toc-element toc-title="Part I — Plugins">
+  <toc-element toc-title="第一部分 - 插件">
     <toc-element topic="plugins_quick_start.md" accepts-web-file-names="basics.html">
-      <toc-element topic="plugin_alternatives.md" toc-title="Plugin Alternatives"/>
+      <toc-element topic="plugin_alternatives.md" toc-title="插件替代方案"/>
       <toc-element topic="plugin_required_experience.md"/>
       <toc-element topic="plugin_types.md" accepts-web-file-names="types-of-plugins.html"/>
     </toc-element>
     <toc-element topic="developing_plugins.md"
                  accepts-web-file-names="getting-started.html,gradle-build-system.html,build_system.html">
       <toc-element topic="creating_plugin_project.md" accepts-web-file-names="gradle-prerequisites.html">
-        <toc-element topic="plugin_github_template.md" toc-title="Plugin GitHub Template"
+        <toc-element topic="plugin_github_template.md" toc-title="插件 GitHub 模板"
                      accepts-web-file-names="github-template.html"/>
         <toc-element topic="migrating_plugin_devkit_to_gradle.md"/>
       </toc-element>
@@ -43,7 +43,7 @@
     </toc-element>
     <toc-element topic="plugin_structure.topic">
       <toc-element topic="plugin_content.md"/>
-      <toc-element topic="bundling_plugin_openapi_sources.md" toc-title="Plugin API Sources"/>
+      <toc-element topic="bundling_plugin_openapi_sources.md" toc-title="插件 API 源代码"/>
       <toc-element topic="plugin_class_loaders.md"/>
       <toc-element topic="plugin_actions.md"/>
       <toc-element topic="plugin_extensions.md" accepts-web-file-names="plugin_extensions_and_extension_points.html"/>
