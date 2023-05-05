@@ -6,37 +6,36 @@
 
 <tldr>
 
-**Homepage**: [Kotlin](https://kotlinlang.org)
+**主页**: [Kotlin](https://kotlinlang.org)
 
-**Project Template**: [](plugin_github_template.md)
+**项目模板**: [](plugin_github_template.md)
 
 </tldr>
 
-<link-summary>Developing plugins using or targeting the Kotlin programming language.</link-summary>
+<link-summary>使用或针对 Kotlin 编程语言开发插件。</link-summary>
 
-This page describes developing plugins using the [Kotlin](https://kotlinlang.org) programming language.
+本页面介绍如何使用 [Kotlin](https://kotlinlang.org) 编程语言开发插件。
 
-> To implement a plugin _operating_ on Kotlin code in the IDE, configure Kotlin [plugin dependency](plugin_dependencies.md) (`org.jetbrains.kotlin`).
-> See also [UAST](uast.md) page for information about how to support multiple JVM languages, including Kotlin.
+> 要在 IDE 中实现操作 Kotlin 代码的插件，请配置 Kotlin [plugin dependency](plugin_dependencies.md) (`org.jetbrains.kotlin`)。
+> 有关如何支持多种 JVM 语言（包括 Kotlin）的信息，请参阅 [UAST](uast.md) 页面。
 
-## Advantages of Developing a Plugin in Kotlin
+## 在 Kotlin 中开发插件的优势
 
-Using Kotlin to write plugins for the IntelliJ Platform is very similar to writing plugins in Java.
-Existing plugin developers can get started by converting boilerplate Java classes to their Kotlin equivalents by using the [J2K converter](https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k) (part of Kotlin plugin), and developers can easily mix and match Kotlin classes with their existing Java code.
+使用 Kotlin 编写 IntelliJ 平台插件与使用 Java 相似。
+现有的插件开发者可以通过使用 J2K 转换器（Kotlin 插件的一部分）将样板 Java 类转换为 Kotlin 等效类来开始开发，开发者可以轻松混合和匹配 Kotlin 类和现有的 Java 代码。
 
-In addition to [null safety](https://kotlinlang.org/docs/null-safety.html) and [type-safe builders](https://kotlinlang.org/docs/type-safe-builders.html), the Kotlin language offers many convenient features for plugin development, which make plugins easier to read and simpler to maintain.
-Much like [Kotlin for Android](https://kotlinlang.org/docs/android-overview.html), the IntelliJ Platform makes extensive use of callbacks, which are easy to express as [lambdas](https://kotlinlang.org/docs/lambdas.html) in Kotlin.
+除了 [空安全](https://kotlinlang.org/docs/null-safety.html)和 [类型安全构建器](https://kotlinlang.org/docs/type-safe-builders.html)外，Kotlin 语言还提供了许多方便的插件开发功能，使插件更易于阅读和更简单维护。
+与 [Android 上的 Kotlin](https://kotlinlang.org/docs/android-overview.html)类似，IntelliJ 平台大量使用回调，这在 Kotlin 中易于表示为 [lambdas](https://kotlinlang.org/docs/lambdas.html) 表达式。
 
-Likewise, it is easy to customize the behavior of internal classes in the IntelliJ Platform using [extensions](https://kotlinlang.org/docs/extensions.html).
-For example, it is common practice to [guard logging statements](https://www.slf4j.org/faq.html#logging_performance) to avoid the cost of parameter construction, leading to the following ceremony when using the log:
+同样，在 IntelliJ 平台中使用 [扩展](https://kotlinlang.org/docs/extensions.html)很容易自定义内部类的行为。
+例如，通常会 [保护日志语句](https://www.slf4j.org/faq.html#logging_performance)以避免参数构造的成本，导致在使用日志时出现以下仪式：
 
 ```java
 if (logger.isDebugEnabled()) {
   logger.debug("..."+expensiveComputation());
 }
 ```
-
-We can achieve the same result more succinctly in Kotlin, by declaring the following extension method:
+我们可以在 Kotlin 中更简洁地实现相同的结果，通过声明以下扩展方法：
 
 ```kotlin
 inline fun Logger.debug(lazyMessage: () -> String) {
@@ -46,85 +45,86 @@ inline fun Logger.debug(lazyMessage: () -> String) {
 }
 ```
 
-Now we can directly write:
+现在我们可以直接这样编写：
 
 ```kotlin
 logger.debug { "..." + expensiveComputation() }
 ```
 
-to receive all the benefits of lightweight logging while reducing the code verbosity.
+以此来获得轻量级日志的所有优点，同时减少代码冗余。
 
-With practice, you will be able to recognize many idioms in the IntelliJ Platform that can be simplified with Kotlin.
+通过实践，您将能够识别出许多在 IntelliJ 平台上可用 Kotlin 简化的习惯用法。
 
-### UI Forms in Kotlin
+### Kotlin 中的 UI 表单
 
-The IntelliJ Platform provides the [type safe DSL](kotlin_ui_dsl_version_2.md) allowing to build UI forms in a declarative way.
+IntelliJ 平台提供了 [类型安全的 DSL](kotlin_ui_dsl_version_2.md)，允许以声明方式构建 UI 表单。
 
-> Using _UI Designer_ plugin with Kotlin is [not supported](https://youtrack.jetbrains.com/issue/KTIJ-791).
+> 使用 _UI Designer_ 插件来使用 Kotlin [是不支持](https://youtrack.jetbrains.com/issue/KTIJ-791)的。
 >
 
-## Adding Kotlin Support
+## 添加 Kotlin 支持
 
-> The [](plugin_github_template.md) provides a preconfigured project using Kotlin.
+> [](plugin_github_template.md)提供了一个预配置的使用 Kotlin 的项目。
 
-IntelliJ IDEA bundles the necessary Kotlin plugin, requiring no further configuration.
-For detailed instructions, please refer to the [Kotlin documentation](https://kotlinlang.org/docs/getting-started.html).
+IntelliJ IDEA 捆绑了必要的 Kotlin 插件，无需进一步配置。
+有关详细说明，请参阅 [Kotlin documentation](https://kotlinlang.org/docs/getting-started.html)。
 
-### Kotlin Gradle Plugin
+### Kotlin Gradle 插件
 
-Adding Kotlin source files compilation support to the Gradle-based project requires adding and configuring the [Kotlin JVM Gradle plugin](https://kotlinlang.org/docs/gradle.html#targeting-the-jvm).
+向基于 Gradle 的项目添加 Kotlin 源文件编译支持需要添加并配置 [Kotlin JVM Gradle 插件](https://kotlinlang.org/docs/gradle.html#targeting-the-jvm)。
 
 See the <path>build.gradle.kts</path> from [kotlin_demo](%gh-sdk-samples%/kotlin_demo) sample plugin:
+请参阅 [kotlin_demo](%gh-sdk-samples%/kotlin_demo)示例插件的 <path>build.gradle.kts</path>：
 
 ```kotlin
 ```
 
 {src="kotlin_demo/build.gradle.kts" include-lines="2-"}
 
-### Kotlin Standard Library
+### Kotlin 标准库
 
-Since Kotlin 1.4, a dependency on the standard library `stdlib` is added automatically ([API Docs](https://kotlinlang.org/api/latest/jvm/stdlib/)).
-In most cases, it is not necessary to include it in the plugin distribution as the platform already bundles it.
+自 Kotlin 1.4 起，将自动添加对标准库 `stdlib` 的依赖项 ([API文档](https://kotlinlang.org/api/latest/jvm/stdlib/))。
+在大多数情况下，不需要将其包含在插件分发中，因为平台已经捆绑了它。
 
-To opt out, add this line in <path>gradle.properties</path>:
+要退出，请在 <path>gradle.properties</path> 中添加以下行：
 
 ```
 kotlin.stdlib.default.dependency = false
 ```
 
-The presence of this Gradle property is checked by the [](tools_gradle_intellij_plugin.md) with the [](tools_gradle_intellij_plugin.md#tasks-verifypluginconfiguration).
-If the property is not present, a warning will be reported during the plugin configuration verification, as it is a common problem when Kotlin stdlib gets bundled within the plugin archive.
-If it is expected to make Kotlin stdlib present in the final archive, explicitly specify it with `kotlin.stdlib.default.dependency = true`.
+[](tools_gradle_intellij_plugin.md) 使用 [](tools_gradle_intellij_plugin.md#tasks-verifypluginconfiguration) 检查此 Gradle 属性的存在。
+如果该属性不存在，则在插件配置验证期间将报告警告，因为当 Kotlin stdlib 被捆绑在插件存档中时，这是一个常见问题。
+如果希望使 Kotlin stdlib 存在于最终存档中，请使用 `kotlin.stdlib.default.dependency = true` 显式指定它。
 
-If a plugin supports [multiple platform versions](build_number_ranges.md), it must either target the lowest bundled `stdlib` version or provide the specific version in plugin distribution.
+如果插件支持 [多个平台版本](build_number_ranges.md)，则必须针对最低捆绑 `stdlib` 版本或在插件分发中提供特定版本。
 
-| IntelliJ Platform version | Bundled `stdlib` version |
-|---------------------------|--------------------------|
-| 2023.1                    | 1.8.0                    |
-| 2022.3                    | 1.7.0                    |
-| 2022.2                    | 1.6.21                   |
-| 2022.1                    | 1.6.20                   |
-| 2021.3                    | 1.5.10                   |
-| 2021.2                    | 1.5.10                   |
-| 2021.1                    | 1.4.32                   |
-| 2020.3                    | 1.4.0                    |
-| 2020.2                    | 1.3.70                   |
-| 2020.1                    | 1.3.70                   |
-| 2019.3                    | 1.3.31                   |
-| 2019.2                    | 1.3.3                    |
-| 2019.1                    | 1.3.11                   |
+| IntelliJ 平台版本 | 捆绑的 stdlib 版本 |
+|---------------|---------------|
+| 2023.1        | 1.8.0         |
+| 2022.3        | 1.7.0         |
+| 2022.2        | 1.6.21        |
+| 2022.1        | 1.6.20        |
+| 2021.3        | 1.5.10        |
+| 2021.2        | 1.5.10        |
+| 2021.1        | 1.4.32        |
+| 2020.3        | 1.4.0         |
+| 2020.2        | 1.3.70        |
+| 2020.1        | 1.3.70        |
+| 2019.3        | 1.3.31        |
+| 2019.2        | 1.3.3         |
+| 2019.1        | 1.3.11        |
 
-See [Dependency on the standard library](https://kotlinlang.org/docs/gradle.html#dependency-on-the-standard-library) for more details.
+有关更多详细信息，请参见 [依赖于标准库](https://kotlinlang.org/docs/gradle.html#dependency-on-the-standard-library)。
 
-> If you need to add Kotlin Standard Library to your **test project** dependencies, see the [](testing_faq.md#how-to-test-a-jvm-language) section.
+> 如果需要将 Kotlin 标准库添加到您的 **测试项目** 依赖项中，请参见 [](testing_faq.md#how-to-test-a-jvm-language)部分。
 >
 
-### Incremental compilation
+### 增量编译
 
-The Kotlin Gradle plugin supports [incremental compilation](https://kotlinlang.org/docs/gradle-compilation-and-caches.html#incremental-compilation), which allows tracking changes in the source files so the compiler handles only updated code.
+Kotlin Gradle 插件支持 [增量编译](https://kotlinlang.org/docs/gradle-compilation-and-caches.html#incremental-compilation)，允许跟踪源文件中的更改，因此编译器只处理更新的代码。
 
-The Kotlin `1.8.20` release has a [new incremental compilation approach](https://kotlinlang.org/docs/gradle-compilation-and-caches.html#a-new-approach-to-incremental-compilation) enabled by default.
-Unfortunately, it is not compatible with the IntelliJ Platform — when reading large JAR files (like <path>app.jar</path> or <path>3rd-party-rt.jar</path>), leading to the `Out of Memory` exception:
+Kotlin `1.8.20` 发布了一种 [新的增量编译方法](https://kotlinlang.org/docs/gradle-compilation-and-caches.html#a-new-approach-to-incremental-compilation)，默认情况下已启用。
+不幸的是，它与 IntelliJ 平台不兼容 - 在读取大型 JAR 文件（如 <path>app.jar</path> 或 <path>3rd-party-rt.jar</path>）时，会导致 `Out of Memory` 异常：
 
 ```
 Execution failed for task ':compileKotlin'.
@@ -133,33 +133,33 @@ Execution failed for task ':compileKotlin'.
       > Java heap space
 ```
 
-To avoid this exception, add the following line to the <path>gradle.properties</path>:
+要避免这种异常，请将以下行添加到 <path>gradle.properties</path>：
 
 ```
 kotlin.incremental.useClasspathSnapshot=false
 ```
 
-You can find the current state of the issue in [KT-57757](https://youtrack.jetbrains.com/issue/KT-57757/Reduce-classpath-snapshotter-memory-consumption).
+您可以在 [KT-57757](https://youtrack.jetbrains.com/issue/KT-57757/Reduce-classpath-snapshotter-memory-consumption) 中找到问题的当前状态。
 
-### Other Bundled Kotlin Libraries
+### 其他捆绑的 Kotlin 库
 
-Please see [Third-Party Software and Licenses](https://www.jetbrains.com/legal/third-party-software/).
+请参见 [第三方软件和许可证](https://www.jetbrains.com/legal/third-party-software/)。
 
-## Caution
+## 注意事项
 
-Plugins *may* use [Kotlin classes](https://kotlinlang.org/docs/classes.html) (`class` keyword) to implement declarations in the [plugin configuration file](plugin_configuration_file.md).
-When registering an extension, the platform uses a dependency injection framework to instantiate these classes at runtime.
-For this reason, plugins *must not* use [Kotlin objects](https://kotlinlang.org/docs/object-declarations.html#object-declarations-overview) (`object` keyword) to implement any <path>[plugin.xml](plugin_configuration_file.md)</path> declarations.
-Managing the lifecycle of extensions is the platform responsibility and instantiating these classes as Kotlin singletons may cause issues.
+插件 *可能* 使用 [Kotlin 类](https://kotlinlang.org/docs/classes.html) (`class` 关键字) 来实现 [插件配置文件](plugin_configuration_file.md)中的声明。
+在注册扩展时，平台使用依赖注入框架在运行时实例化这些类。
+因此，插件 *不应* 使用 [Kotlin 对象](https://kotlinlang.org/docs/object-declarations.html#object-declarations-overview) (`object` 关键字) 来实现任何 [plugin.xml](plugin_configuration_file.md) 声明。
+管理扩展的生命周期是平台的责任，并且将这些类实例化为 Kotlin 单例可能会导致问题。
 
-## Kotlin Code FAQ
+## Kotlin 代码 FAQ
 
-[How to shorten references](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360010025120-Add-new-parameter-into-kotlin-data-class-from-IDEA-plugin?page=1#community_comment_360002950760)
+[如何缩短引用](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360010025120-Add-new-parameter-into-kotlin-data-class-from-IDEA-plugin?page=1#community_comment_360002950760)
 
-## Example Plugins Implemented in Kotlin
+## 用 Kotlin 实现的示例插件
 
-There are many [open-source Kotlin plugins](https://jb.gg/ipe?language=kotlin) built on the IntelliJ Platform.
-For a readily available source of up-to-date examples of plugins implemented in Kotlin, developers may look to these projects for inspiration:
+有许多基于 IntelliJ 平台构建的[开源 Kotlin 插件](https://jb.gg/ipe?language=kotlin)。
+对于想要获取最新的 Kotlin 插件实现示例的开发人员，可以参考以下项目以获得灵感：
 
 * [Presentation Assistant](https://github.com/chashnikov/IntelliJ-presentation-assistant)
 * [Rust](https://github.com/intellij-rust/intellij-rust)

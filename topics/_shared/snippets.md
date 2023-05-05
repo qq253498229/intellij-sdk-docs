@@ -56,11 +56,11 @@ _Early Access Program_ (EAP) releases of upcoming versions are available [here](
 
 <snippet id="apiChangesJavaVersion">
 
-> Java 17 is required ([blog post](https://blog.jetbrains.com/platform/2022/08/intellij-project-migrates-to-java-17/) when targeting 2022.2 or later only.
+> 仅在针对2022.2或更高版本时需要Java 17（[博客文章](https://blog.jetbrains.com/platform/2022/08/intellij-project-migrates-to-java-17/)）。
 >
-> Java 11 is required ([blog post](https://blog.jetbrains.com/platform/2020/09/intellij-project-migrates-to-java-11/)) when targeting 2020.3 and later only.
+> 仅在针对2020.3及更高版本时需要Java 11（[博客文章](https://blog.jetbrains.com/platform/2020/09/intellij-project-migrates-to-java-11/)）。
 >
-> Please make sure to always upgrade `gradle-intellij-plugin` to the latest version [![GitHub Release](https://img.shields.io/github/release/jetbrains/gradle-intellij-plugin.svg?style=flat-square){type="joined"}](https://github.com/jetbrains/gradle-intellij-plugin/releases)
+> 请确保始终将 `gradle-intellij-plugin` 升级到最新版本 [![GitHub Release](https://img.shields.io/github/release/jetbrains/gradle-intellij-plugin.svg?style=flat-square){type="joined"}](https://github.com/jetbrains/gradle-intellij-plugin/releases)
 >
 {style="note"}
 

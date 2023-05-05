@@ -4,22 +4,26 @@
 
 <link-summary>所需技术知识。</link-summary>
 
-The IntelliJ Platform is a JVM application, implemented mostly in Java and [Kotlin](https://kotlinlang.org).
-At this time, it's not possible to develop plugins for the IntelliJ Platform in non-JVM languages.
+IntelliJ平台是一种基于JVM的应用程序，主要使用Java和 [Kotlin](https://kotlinlang.org) 实现。
+目前来看，无法使用非JVM语言开发IntelliJ平台的插件。
 
-Developing a plugin for the IntelliJ Platform requires knowledge and experience with the following technologies and concepts:
+开发IntelliJ平台的插件需要掌握以下技术和概念：
 
-- Java, Kotlin, or other JVM language, and its standard and 3rd-party libraries
-- [Gradle](https://gradle.org/) or a similar build system (e.g., Maven)
-- [Swing](https://en.wikipedia.org/wiki/Swing_(Java)) for building user interfaces
-- [Java Concurrency Model](https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)
-- experience with IntelliJ Platform-based IDE (e.g., [IntelliJ IDEA](https://www.jetbrains.com/idea/))
+- Java、Kotlin或其他JVM语言以及其标准和第三方库
 
-Please keep in mind that the IntelliJ Platform is a large project, and while we are doing our best to cover as many topics as possible, it is not possible to include every feature and use-case in the documentation.
-Developing a plugin will sometimes require digging into the [IntelliJ Platform code](https://github.com/JetBrains/intellij-community) and analyzing the [example implementations in other plugins](https://jb.gg/ipe).
+- [Gradle](https://gradle.org/) 或类似的构建系统（例如Maven）
 
-It's highly recommended to get familiar with the [](explore_api.md) section before you start the plugin implementation.
+- [Swing](https://en.wikipedia.org/wiki/Swing_(Java))用于构建用户界面
 
-> In some cases, implementing an actual IntelliJ Platform plugin might not be necessary, as [alternative solutions](plugin_alternatives.md) exist.
+- [Java并发模型](https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html)
+
+- 具有IntelliJ平台为基础的IDE（例如 [IntelliJ IDEA](https://www.jetbrains.com/idea/)）的经验
+
+请记住，IntelliJ平台是一个庞大的项目，尽管我们正在尽最大努力涵盖尽可能多的主题，但不可能在文档中包含每个功能和用例。
+有时，开发插件需要深入研究 [IntelliJ平台代码](https://github.com/JetBrains/intellij-community)，并分析 [其他插件中的示例实现](https://jb.gg/ipe)。
+
+强烈建议在开始插件实现之前熟悉 [](explore_api.md) 部分。
+
+> 在某些情况下，可能不需要实现一个真正的IntelliJ平台插件，因为存在 [替代解决方案](plugin_alternatives.md)。
 >
 {style="note"}
