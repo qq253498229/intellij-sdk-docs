@@ -4,8 +4,8 @@
 
 <link-summary>避免构建“完整”插件的替代策略和工具。</link-summary>
 
-在某些情况下，实现一个真正的IntelliJ平台插件可能是过度的，使用下面列出的替代方法可以在更短的时间内提供所需的价值。
-如果您需要特定于项目域、惯例或实践的功能，您可以避免实现和发布插件所需的所有步骤，并将这些特性作为您的项目或IDE配置文件的一部分提供。
+在某些情况下，您可能不需要实现一个真正的IntelliJ平台插件，使用下面列出的替代方法可以在更短的时间内解决您的需求。
+如果您需要特定于项目域、约定或实践的功能，您可以避免实现和发布插件所需的所有步骤，并将这些特性作为您的项目或IDE配置文件的一部分提供。
 
 在开始IntelliJ平台插件开发之前，请定义您的要求并验证它们是否可以通过下面描述的任何替代方法来满足。
 只有在所描述的解决方案在您的情况下不足以提供足够的价值，并且有大量开发人员可以从中受益时，才考虑实现实际的插件。
@@ -27,38 +27,38 @@ SSR模板可用于 [创建自定义检查](https://www.jetbrains.com/help/idea/c
 >
 {style="note"}
 
-## IDE Scripting Console
+##  IDE脚本控制台
 
-The [IDE scripting console](https://www.jetbrains.com/help/idea/ide-scripting-console.html) can be used for automating IDE's features and extracting required information, e.g., about a current project.
-Scripts can access the IntelliJ Platform APIs and can be implemented in Kotlin, JavaScript, or Groovy by default, but it is also possible to use other languages compliant with the [JCR-223 specification](https://www.jcp.org/en/jsr/detail?id=223).
+[IDE脚本控制台](https://www.jetbrains.com/help/idea/ide-scripting-console.html) 可用于自动化IDE的功能并提取所需信息，例如有关当前项目的信息。
+脚本可以访问IntelliJ平台API，并默认情况下可以使用Kotlin、JavaScript或Groovy实现，但也可以使用符合 [JCR-223规范](https://www.jcp.org/en/jsr/detail?id=223) 的其他语言。
 
-Created scripts are stored in the [IDE configuration directory](https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory) and can't be shared as part of project files or configuration.
+创建的脚本存储在 [IDE配置目录](https://www.jetbrains.com/help/idea/directories-used-by-the-ide-to-store-settings-caches-plugins-and-logs.html#config-directory) 中，不能作为项目文件或配置的一部分共享。
 
-## Flora Plugin
+## Flora插件
 
-The [Flora](https://plugins.jetbrains.com/plugin/17669-flora-beta-) plugin allows for developing project-specific extensions as Kotlin Script (<path>\*.kts</path>) or JavaScript (<path>\*.js</path>) files.
-Flora extensions have access to all available IntelliJ Platform APIs, just like a regular plugin.
+[Flora](https://plugins.jetbrains.com/plugin/17669-flora-beta-) 插件允许开发项目特定的扩展，以Kotlin脚本 (<path>\*.kts</path>) 或JavaScript文件 (<path>\*.js</path>) 的格式。
+Flora扩展可以像常规插件一样访问所有可用的IntelliJ平台API。
 
-Every extension is represented by a single file and stored directly in a project's <path>.plugins</path> directory.
-Extensions can be easily shared with other team members by adding the <path>.plugins</path> directory to VCS.
-Also, adding the Flora plugin in the <ui-path>Settings | Build, Execution, Deployment | Required Plugins</ui-path> and sharing this configuration as part of a project makes it effortless to deliver additional IDE functionalities to your team without any manual setup.
+每个扩展由单个文件表示，并直接存储在项目的 <path>.plugins</path> 目录中。
+通过将 <path>.plugins</path> 目录添加到版本控制系统，可以轻松地与其他团队成员共享扩展。
+另外，在 <ui-path>Settings | Build, Execution, Deployment | Required Plugins</ui-path> 中添加Flora插件，并将此配置作为项目的一部分共享，可以轻松地向团队提供额外的IDE功能，而不需要任何手动设置。
 
 ## LivePlugin
 
-The [LivePlugin](https://plugins.jetbrains.com/plugin/7282-liveplugin) allows for extending IntelliJ-based IDEs functionalities at the runtime, without the need of restarting IDE.
-It adds a new <control>Plugins</control> tool window that lists all available extensions and allows managing them.
-Extensions can be implemented in Kotlin or Groovy and edited directly in the IDE.
-Extensions can use all IntelliJ Platform APIs and additional LivePlugin API that shorten common use cases.
+[LivePlugin](https://plugins.jetbrains.com/plugin/7282-liveplugin) 允许在运行时扩展基于IntelliJ的IDE功能，无需重启IDE。
+它添加了一个新的 <control>Plugins</control> 工具窗口，列出所有可用的扩展并允许管理它们。
+扩展可以使用Kotlin或Groovy实现，并可以直接在IDE中进行编辑。
+扩展可以使用所有IntelliJ平台API和额外的LivePlugin API，缩短常见用例。
 
-Created extensions are stored on the IDE level and can be shared with other team members as plain files, GitHub gists, or repositories.
-Additionally, if they are stored in a project's <path>.live-plugins</path> directory and LivePlugin's <control>Run Project Specific Plugins</control> option is enabled, all extensions from this directory will be loaded automatically when the project is opened and unloaded when the project is closed.
+创建的扩展存储在IDE级别上，并可以作为普通文件、GitHub gists或存储库与其他团队成员共享。
+此外，如果它们存储在项目的 <path>.live-plugins</path> 目录中并且启用了LivePlugin的 <control>Run Project Specific Plugins(运行特定项目插件)</control> 选项，则该目录中的所有扩展将在打开项目时自动加载，并在关闭项目时卸载。
 
-> See the LivePlugin [description](https://dmitrykandalov.com/liveplugin), [presentation](https://www.youtube.com/watch?v=GcYa4lMRta0), and [extensions examples](https://github.com/dkandalov/live-plugin#more-examples) for more information.
+> 有关详细信息，请参阅 [描述](https://dmitrykandalov.com/liveplugin), [演示](https://www.youtube.com/watch?v=GcYa4lMRta0), 和 [扩展示例](https://github.com/dkandalov/live-plugin#more-examples) 。
 >
 {style="note"}
 
-## PhpStorm Advanced Metadata
+## PhpStorm高级元数据
 
-[PhpStorm](https://www.jetbrains.com/phpstorm/) supports special [metadata files](https://www.jetbrains.com/help/phpstorm/ide-advanced-metadata.html) describing the behavior of methods and functions.
-This information is used for using the existing IDE features such as code completion, navigation, finding usages, and others.
-The metadata files can be [part of project files](https://www.jetbrains.com/help/phpstorm/ide-advanced-metadata.html#create-metadata-files-inside-your-project), which makes it easy to share it between team members via version control.
+[PhpStorm](https://www.jetbrains.com/phpstorm/) 支持描述方法和函数行为的特殊 [metadata files](https://www.jetbrains.com/help/phpstorm/ide-advanced-metadata.html)。
+这些信息用于使用现有的IDE功能，如代码完成、导航、查找用法等。
+元数据文件可以是 [项目文件的一部分](https://www.jetbrains.com/help/phpstorm/ide-advanced-metadata.html#create-metadata-files-inside-your-project)，这使得通过版本控制在团队成员之间共享它变得容易。

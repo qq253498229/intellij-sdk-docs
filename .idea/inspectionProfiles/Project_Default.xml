@@ -9,5 +9,6 @@
     <inspection_tool class="NonFinalFieldInImmutable" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="SSBasedInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="TocElementsTocTitleRedundant" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="WrsDuplicatingIdInMarkdownArticle" enabled="false" level="ERROR" enabled_by_default="false" />
   </profile>
 </component>
